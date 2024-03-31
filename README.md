@@ -1,12 +1,12 @@
 # DeepRelax
 
 ## Dataset
-The datasets used in our work are publicly available and can be accessed from
+Our research utilizes datasets that are publicly accessible. Details and access links for each dataset are provided below:
 - **XMnO Dataset** [1]: Available at [XMnO](https://zenodo.org/records/8081655).
 - **MP Dataset** [2]: Available at [MPF.2021.2.8](https://figshare.com/articles/dataset/MPF_2021_2_8/19470599).
 - **C2DB Dataset** [3, 4, 5]: Available at [C2DB](https://cmr.fysik.dtu.dk/c2db/c2db.html).
 
-Alternatively, you can download the raw data as well as the processed data from [link]. 
+For convenience, both raw and processed data from these datasets can also be downloaded from [Zenodo](https://zenodo.org/records/10899768). 
 
 ## Requirements
 Required Python packages include:  
