@@ -79,7 +79,24 @@ To test DeepRelax on XMnO, run:
 Ensure you replace your_data_path and your_model_path with your own ones. If you use wandb, you can find the saved model in ./wandb/run-xxx/files/model.pt, where xxx refers to information about the model.You can test DeepRelax in other two datasets similarly.
 
 ### Practical Application
-The best way to use DeepRelax is through transfer learning. Here, we provide a demo to illstruate how to transfer the trained to your particular application. You should write a own  
+The best way to use DeepRelax is through transfer learning. Here, we provide a demo to illstruate how to transfer the trained to your particular application. You should organize the data as a structure similar to following:<br>
+-custom  
+&ensp;&ensp;-train.csv<br>
+&ensp;&ensp;-val.csv<br>
+&ensp;&ensp;-test.csv<br>
+&ensp;&ensp;-CIF<br>
+&ensp; &ensp;&ensp;&ensp;-data_1.cif<br>
+&ensp; &ensp;&ensp;&ensp;-data_2.cif<br>
+The xxx.csv file should include a column name as 'atoms_id' and each row is the id of your cif file, such as the above data_1, data_2, an example is showed as following:<br>
+| atoms_id    |
+|-------------|
+| data_1  |
+| data_2  |
+| data_3 |
+| ...  |
+
+Then you can convert your cif file into graphs using `python preprocess_c2db.py --data_root your_data_path/custom --num_workers 1`, this should result three subdirectories under custom directory.
+You can use `train_transfer_learning.py` to apply transfer learning to your custom dataset. Next, you can 
 
 ## Citation
 If you find the DeepRelax model beneficial for your research, please include a citation to our paper. You can reference it as follows:
