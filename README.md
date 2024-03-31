@@ -1,4 +1,4 @@
-# DeepRelax
+# Scaling Crystal Structure Relaxation with a Universal Trustworthy Deep Generative Model (DeepRelax)
 
 ## Dataset
 Our research utilizes datasets that are publicly accessible. Details and access links for each dataset are provided below:
@@ -27,7 +27,7 @@ Required Python packages include:
 Alternatively, install the environment using the provided YAML file at `./environment/environment.yaml`.
 
 ## Logger
-For logging, we recommend using wandb. More details are available at https://wandb.ai/. Training logs and trained models are stored in the `./wandb` directory.
+For logging, we recommend using Wandb. More details are available at https://wandb.ai/. Training logs and trained models are stored in the `./wandb` directory. The saved model can typically be found at ./wandb/run-xxx/files/model.pt, where xxx represents specific run information.
 
 ## Step-by-Step Guide
 
@@ -53,7 +53,39 @@ For the C2DB dataset:
 
 `python preprocess_c2db.py --data_root your_data_path/c2db --num_workers 1`
 
-To increase the processing speed, you can adjust the --num_workers parameter to a higher value, depending on your system's capabilities
+To increase the processing speed, you can adjust the --num_workers parameter to a higher value, depending on your system's capabilities.
+
+### Train the Model
+To initiate training of the DeepRelax model, execute the following commands. Make sure to substitute your_data_path with the actual path to your dataset:
+
+For the XMnO dataset:
+- `python train.py --data_root your_data_path/cifs_xmno --num_workers 4 --batch_size 32 --steps_per_epoch 800`
+
+For the MP dataset:
+- `python train.py --data_root your_data_path/MPF.2021.2.8 --num_workers 4  --batch_size 32 --steps_per_epoch 800`
+
+For the C2DB dataset:
+- `python train.py --data_root your_data_path/c2db --num_workers 4  --batch_size 32 --steps_per_epoch 100`
+
+### Test the Model
+To evaluate the DeepRelax model, specifically on the XMnO dataset, run the following command, replacing your_data_path and your_model_path with the appropriate paths:
+- `python edg_solver.py --data_root your_data_path/cifs_xmno --model_path your_model_path/model.pt`
+
+This process can be similarly applied to the other datasets. If you are using WandB for tracking experiments, the saved model can typically be found at ./wandb/run-xxx/files/model.pt, where xxx represents specific run information.
+
+To test DeepRelax on XMnO, run:
+- `python edg_solver.py --data_root your_data_path/cifs_xmno --model_path your_model_path/model.pt`
+
+Ensure you replace your_data_path and your_model_path with your own ones. If you use wandb, you can find the saved model in ./wandb/run-xxx/files/model.pt, where xxx refers to information about the model.You can test DeepRelax in other two datasets similarly.
+
+### Practical Application
+The best way to use DeepRelax is through transfer learning. Here, we provide a demo to illstruate how to transfer the trained to your particular application. You should write a own  
+
+## Citation
+If you find the DeepRelax model beneficial for your research, please include a citation to our paper. You can reference it as follows:
 
 ## Acknowledgements
 Some part of code in this project were adapted from [OCP](https://github.com/Open-Catalyst-Project/ocp). We gratefully acknowledge the contributions from this source. We also acknowledge Prof. Kristian Sommer Thygesen and Peder Lyngby for their generous provision of the C2DB database, complete with both initial and final structures. 
+
+## Reference
+[1] Schütt K, Kindermans P J, Sauceda Felix H E, et al. "Schnet: A continuous-filter convolutional neural network for modeling quantum interactions." Advances in Neural Information Processing Systems, 2017, 30.
