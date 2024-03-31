@@ -43,15 +43,15 @@ If you prefer to preprocess the data from scratch, use the following commands, e
 
 For the XMnO dataset:
 
-`python preprocess_xmno.py --data_root your_data_path/cifs_xmno --num_workers 1`
+- `python preprocess_xmno.py --data_root your_data_path/cifs_xmno --num_workers 1`
 
 For the MP dataset:
 
-`python preprocess_mp.py --data_root your_data_path/MPF.2021.2.8 --num_workers 1`
+- `python preprocess_mp.py --data_root your_data_path/MPF.2021.2.8 --num_workers 1`
 
 For the C2DB dataset:
 
-`python preprocess_c2db.py --data_root your_data_path/c2db --num_workers 1`
+- `python preprocess_c2db.py --data_root your_data_path/c2db --num_workers 1`
 
 To increase the processing speed, you can adjust the --num_workers parameter to a higher value, depending on your system's capabilities.
 
@@ -88,4 +88,8 @@ If you find the DeepRelax model beneficial for your research, please include a c
 Some part of code in this project were adapted from [OCP](https://github.com/Open-Catalyst-Project/ocp). We gratefully acknowledge the contributions from this source. We also acknowledge Prof. Kristian Sommer Thygesen and Peder Lyngby for their generous provision of the C2DB database, complete with both initial and final structures. 
 
 ## Reference
-[1] Schütt K, Kindermans P J, Sauceda Felix H E, et al. "Schnet: A continuous-filter convolutional neural network for modeling quantum interactions." Advances in Neural Information Processing Systems, 2017, 30.
+[1] Kim S, Noh J, Jin T, et al. A structure translation model for crystal compounds[J]. npj Computational Materials, 2023, 9(1): 142.<br>
+[2] Chen C, Ong S P. A universal graph deep learning interatomic potential for the periodic table[J]. Nature Computational Science, 2022, 2(11): 718-728.<br>
+[3] Haastrup S, Strange M, Pandey M, et al. The Computational 2D Materials Database: high-throughput modeling and discovery of atomically thin crystals[J]. 2D Materials, 2018, 5(4): 042002.<br>
+[4] Gjerding M N, Taghizadeh A, Rasmussen A, et al. Recent progress of the computational 2D materials database (C2DB)[J]. 2D Materials, 2021, 8(4): 044002.<br>
+[5] Lyngby P, Thygesen K S. Data-driven discovery of 2D materials by deep generative models[J]. npj Computational Materials, 2022, 8(1): 232.
