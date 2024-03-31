@@ -99,6 +99,8 @@ Each .csv file should contain a column named atoms_id, with each row correspondi
 | data_3 |
 | ...  |
 
+When defining atoms_id, ensure it is consistent with the names of your .cif files to maintain integrity and facilitate seamless processing.
+
 #### Preprocessing Your Data
 To convert your .cif files into a format suitable for DeepRelax, use the following command, replacing your_data_path with the path to your custom directory:
 - `python preprocess_c2db.py --data_root your_data_path/custom --num_workers 1`
