@@ -87,9 +87,13 @@ First, ensure your data is structured as follows to facilitate processing:
   - `val.csv`
   - `test.csv`
   - `CIF/`
-    - `data_1.cif`
-    - `data_2.cif`
+    - `data_1_unrelaxed.cif`
+    - `data_1_relaxed.cif`
+    - `data_2_unrelaxed.cif`
+    - `data_2_relaxed.cif`
     - `...`
+
+**Note**: The test set does not require relaxed structures. However, for training and validation sets, pairs of unrelaxed and relaxed structures are necessary.
 
 Each .csv file should contain a column named atoms_id, with each row corresponding to the ID of a .cif file in your dataset. For example:<br>
 | atoms_id    |
@@ -103,18 +107,24 @@ When defining atoms_id, ensure it is consistent with the names of your .cif file
 
 #### Preprocessing Your Data
 To convert your .cif files into a format suitable for DeepRelax, use the following command, replacing your_data_path with the path to your custom directory:
-- `python preprocess_c2db.py --data_root your_data_path/custom --num_workers 1`
+- `python preprocess_custom.py --data_root your_data_path/custom --num_workers 1`
 
-This command will process your .cif files and organize the output into three subdirectories within the custom directory.
+This command will process your .cif files and organize the output into two subdirectories (train_DeepRelax and val_DeepRelax) within the custom directory.
 
 #### Applying Transfer Learning
 After preprocessing your data, apply transfer learning to your custom dataset with the following command:
-- `python train.py --data_root your_data_path/custom --num_workers 4 --batch_size 32 --steps_per_epoch 100`
+- `python train.py --data_root your_data_path/custom --num_workers 4 --batch_size 32 --steps_per_epoch 100 --transfer True`
 
 Ensure to replace your_data_path with the appropriate path to where your custom directory is located.
 
 #### Testing the Model
-Refer to the Test the Model section previously discussed to evaluate the performance of your model trained with transfer learning on your custom dataset.
+Refer to the Test the Model section previously discussed to evaluate the performance of your model trained with transfer learning on your custom dataset. Remember, you need pairs of unrelaxed and relaxed structures for evaluation. If your test set lacks relaxed structures, you can't directly evaluate performance but can predict relaxed structures as follows.
+
+#### Predicting the Relaxed Structures
+To predict relaxed structures and save them as .cif files:
+- `python predict_relaxed_structure.py --data_root your_data_path/custom --model_path your_model_path/model.pt`
+
+This script predicts the relaxed structure using record atoms_id in test.csv. Note that it is not need to provide relaxed structure for the test data. After running the prediction script, the predicted relaxed structures will be located in the ./predicted_structures directory within your project's root directory. This makes it easy to access and review the results of your model's predictions.
 
 ## Citation
 If you find the DeepRelax model beneficial for your research, please include a citation to our paper. You can reference it as follows:
