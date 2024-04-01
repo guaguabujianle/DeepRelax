@@ -99,6 +99,7 @@ if __name__ == "__main__":
     parser.add_argument('--steps_per_epoch', type=int, default=800, help='steps_per_epoch')
     parser.add_argument('--early_stop_epoch', type=int, default=50, help='steps_per_epoch')
     parser.add_argument('--save_model', type=bool, default=True)
+    parser.add_argument('--transfer', type=bool, default=False)
 
     args = parser.parse_args()
     data_root = args.data_root
@@ -109,6 +110,7 @@ if __name__ == "__main__":
     steps_per_epoch = args.steps_per_epoch
     early_stop_epoch = args.early_stop_epoch
     save_model = args.save_model
+    transfer = args.transfer 
 
     train_set = TrajectoryLmdbDataset({"src": os.path.join(data_root, 'train_DeepRelax')})
     valid_set = TrajectoryLmdbDataset({"src": os.path.join(data_root, 'val_DeepRelax')})
@@ -128,13 +130,20 @@ if __name__ == "__main__":
 
     device = torch.device('cuda:0')
     model = DeepRelax(hidden_channels=512, num_layers=4, num_rbf=128, cutoff=30.0, num_elements=118).to(device)
+    ema_helper = EMAHelper(mu=0.999)
+    ema_helper.register(model)
+    
+    if transfer == True:
+        print("Loading pretrained model")
+
+        model_path = './trained_model/model.pt'
+        ema_helper.load_state_dict(torch.load(model_path))
+        ema_helper.ema(model)
+        
     optimizer = optim.AdamW(model.parameters(), lr=1e-4, weight_decay=0, amsgrad=True)
     scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.8, patience=5, min_lr=1.e-8)
     criterion_dist = DistanceL1Loss()
     criterion_cell = nn.L1Loss()
-
-    ema_helper = EMAHelper(mu=0.999)
-    ema_helper.register(model)
 
     running_loss = AverageMeter()
     running_loss_dist_displace = AverageMeter()
