@@ -127,7 +127,13 @@ To predict relaxed structures and save them as .cif files:
 This script predicts the relaxed structure using record atoms_id in test.csv. Note that it is not need to provide relaxed structure for the test data. After running the prediction script, the predicted relaxed structures will be located in the ./predicted_structures directory within your project's root directory. This makes it easy to access and review the results of your model's predictions.
 
 ## Citation
-If you find the DeepRelax model beneficial for your research, please include a citation to our paper. You can reference it as follows:
+If you find the DeepRelax model beneficial for your research, please include a citation to our paper. You can reference it as follows:<br>
+@article{yang2024scaling,<br>
+      &emsp; title={Scaling Crystal Structure Relaxation with a Universal Trustworthy Deep Generative Model},<br> 
+      &emsp; author={Ziduo Yang and Yiming Zhao and Xiaoqing Liu and Xiuying Zhang and Yifan Li and Qiujie Lyu and Calvin Yu-Chian Chen and Lei Shen},<br>
+      &emsp; journal={arXiv preprint arXiv:2404.00865},<br>
+      &emsp; year={2024},<br>
+}<br>
 
 ## Acknowledgements
 Some part of code in this project were adapted from [OCP](https://github.com/Open-Catalyst-Project/ocp). We gratefully acknowledge the contributions from this source. We also acknowledge Prof. Kristian Sommer Thygesen and Peder Lyngby for their generous provision of the C2DB database, complete with both initial and final structures. 
