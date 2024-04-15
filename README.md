@@ -32,7 +32,7 @@ For logging, we recommend using Wandb. More details are available at https://wan
 ## Step-by-Step Guide
 
 ### Data Preprocessing
-To begin working with the datasets, first download the necessary files from the provided [link] and unzip them. You will find the preprocessed data in the following directories for each dataset:
+To begin working with the datasets, first download the necessary files from [Zenodo](https://zenodo.org/records/10899768) and unzip them. You will find the preprocessed data in the following directories for each dataset:
 
 - For the XMnO dataset: cifs_xmno/train_DeepRelax, cifs_xmno/val_DeepRelax, cifs_xmno/test_DeepRelax
 - For the MP dataset: Similar directory structure as XMnO
