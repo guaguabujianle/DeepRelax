@@ -73,11 +73,6 @@ To evaluate the DeepRelax model, specifically on the XMnO dataset, run the follo
 
 This process can be similarly applied to the other datasets. If you are using WandB for tracking experiments, the saved model can typically be found at ./wandb/run-xxx/files/model.pt, where xxx represents specific run information.
 
-To test DeepRelax on XMnO, run:
-- `python edg_solver.py --data_root your_data_path/cifs_xmno --model_path your_model_path/model.pt`
-
-Ensure you replace your_data_path and your_model_path with your own ones. If you use wandb, you can find the saved model in ./wandb/run-xxx/files/model.pt, where xxx refers to information about the model.You can test DeepRelax in other two datasets similarly.
-
 ### Practical Application of DeepRelax through Transfer Learning
 DeepRelax is optimally utilized via transfer learning. This approach allows you to leverage a pre-trained model and adapt it to your specific use case. Below, we outline a demonstration to guide you in transferring the trained model to your application.<br>
 #### Organizing Your Data
