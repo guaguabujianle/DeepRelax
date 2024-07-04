@@ -244,4 +244,5 @@ if __name__ == "__main__":
                         print("best_mae: ", best_mae)
                         break_flag = True
                         break
-
+                    
+    wandb.finish()
