@@ -1,4 +1,4 @@
-# Scaling Crystal Structure Relaxation with a Universal Trustworthy Deep Generative Model (DeepRelax)
+# Scalable Crystal Structure Relaxation Using an Iteration-Free Deep Generative Model with Uncertainty Quantification (DeepRelax)
 
 ## Dataset
 Our research utilizes datasets that are publicly accessible. Details and access links for each dataset are provided below:
