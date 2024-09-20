@@ -122,16 +122,20 @@ To predict relaxed structures and save them as .cif files:
 This script predicts the relaxed structure using record atoms_id in test.csv. Note that it is not need to provide relaxed structure for the test data. After running the prediction script, the predicted relaxed structures will be located in the ./predicted_structures directory within your project's root directory. This makes it easy to access and review the results of your model's predictions.
 
 ## Citation
-If you find the DeepRelax model beneficial for your research, please include a citation to our paper. You can reference it as follows:<br>
-@article{yang2024scaling,<br>
-      &emsp; title={Scaling Crystal Structure Relaxation with a Universal Trustworthy Deep Generative Model},<br> 
-      &emsp; author={Ziduo Yang and Yiming Zhao and Xiaoqing Liu and Xiuying Zhang and Yifan Li and Qiujie Lyu and Calvin Yu-Chian Chen and Lei Shen},<br>
-      &emsp; journal={arXiv preprint arXiv:2404.00865},<br>
-      &emsp; year={2024},<br>
+If you find the DeepRelax model beneficial for your research, please include a citation to our paper. You can reference it as follows:<be>
+@article{yang2024scalable,<br> 
+  &emsp;&emsp;title={Scalable crystal structure relaxation using an iteration-free deep generative model with uncertainty quantification},<br> 
+  &emsp;&emsp;author={Yang, Ziduo and Zhao, Yi-Ming and Wang, Xian and Liu, Xiaoqing and Zhang, Xiuying and Li, Yifan and Lv, Qiujie and Chen, Calvin Yu-Chian and Shen, Lei},<br>
+  &emsp;&emsp;journal={Nature Communications},<br>
+  &emsp;&emsp;volume={15},<br>
+  &emsp;&emsp;number={1},<br>
+  &emsp;&emsp;pages={8148},<br>
+  &emsp;&emsp;year={2024},<br>
+  publisher={Nature Publishing Group UK London}<br>
 }<br>
 
 ## Acknowledgements
-Some part of code in this project were adapted from [OCP](https://github.com/Open-Catalyst-Project/ocp). We gratefully acknowledge the contributions from this source. We also acknowledge Prof. Kristian Sommer Thygesen and Peder Lyngby for their generous provision of the C2DB database, complete with both initial and final structures. 
+Some parts of the code in this project were adapted from [OCP](https://github.com/Open-Catalyst-Project/ocp). We gratefully acknowledge the contributions from this source. We also acknowledge Prof. Kristian Sommer Thygesen and Peder Lyngby for their generous provision of the C2DB database, complete with both initial and final structures. 
 
 ## Reference
 [1] Kim S, Noh J, Jin T, et al. A structure translation model for crystal compounds[J]. npj Computational Materials, 2023, 9(1): 142.<br>
